@@ -117,18 +117,18 @@
       border-radius: 50%;
       outline: none;
       position: absolute;
-      top: 50%;
+      bottom: 2rem; /* Position buttons at the bottom with some space */
       transition: opacity 0.3s ease, visibility 0.3s ease;
       opacity: 0; /* Hide buttons by default */
       visibility: hidden; /* Hide buttons by default */
     }
 
     .buttons button#prev {
-      left: 1rem;
+      left: 1rem; /* Keep the previous button on the left */
     }
 
     .buttons button#next {
-      right: 1rem;
+      right: 1rem; /* Keep the next button on the right */
     }
 
     /* Show buttons when hovering over the slider */
@@ -190,23 +190,6 @@
     const auto = true;
     const intervalTime = 15000;
     let slideInterval;
-
-    // Function to shuffle the slides
-    const shuffleSlides = () => {
-      const slidesArray = Array.from(slides);
-      for (let i = slidesArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [slidesArray[i], slidesArray[j]] = [slidesArray[j], slidesArray[i]]; // Swap
-      }
-      // Reorder the slides in the DOM
-      const slider = document.querySelector('.slider');
-      slidesArray.forEach(slide => {
-        slider.appendChild(slide); // Reappending slides in shuffled order
-      });
-    };
-
-    // Shuffle the slides when the page loads
-    shuffleSlides();
 
     const nextSlide = () => {
       const current = document.querySelector(".current");
